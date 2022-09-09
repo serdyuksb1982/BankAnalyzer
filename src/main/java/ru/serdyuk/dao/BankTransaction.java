@@ -1,4 +1,4 @@
-package ru.serdyuk.domain;
+package ru.serdyuk.dao;
 
 import lombok.*;
 
@@ -12,6 +12,4 @@ public class BankTransaction {
     private final LocalDate date;
     public final double amount;
     public final String description;
-
-
 }
