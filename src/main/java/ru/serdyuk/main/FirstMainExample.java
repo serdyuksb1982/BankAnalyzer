@@ -1,4 +1,7 @@
-package ru.serdyuk;
+package ru.serdyuk.main;
+
+import ru.serdyuk.domain.BankTransaction;
+import ru.serdyuk.services.BankStatementCSBParser;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,7 +11,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class FirstMainExample {
     private static final String RESOURCES = "src/main/resources/resources.csv";
 
     public static void main(String[] args) throws IOException {
