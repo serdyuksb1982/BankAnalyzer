@@ -1,28 +1,30 @@
 package ru.serdyuk.services;
 
-import ru.serdyuk.domain.BankTransaction;
+import ru.serdyuk.dao.BankTransaction;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankStatementCSBParser {
+public class BankStatementCSBParser implements BankStatementParser {
     private static final DateTimeFormatter DATE_TIME = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    private BankTransaction parseFromCSV(final String line) {
+
+    @Override
+    public BankTransaction parseForm(String line) {
         final String[] columns = line.split(" ");
 
         final LocalDate date = LocalDate.parse(columns[0], DATE_TIME);
         final double amount = Double.parseDouble(columns[1]);
         final String description = columns[2];
         return new BankTransaction(date, amount, description);
-
     }
 
-    public List<BankTransaction> parseLinesFromCSV(final List<String> lines) {
+    @Override
+    public List<BankTransaction> parseLinesFrom(List<String> lines) {
         final List<BankTransaction> bankTransactions = new ArrayList<>();
         for (final String line: lines) {
-            bankTransactions.add(parseFromCSV(line));
+            bankTransactions.add(parseForm(line));
         }
         return bankTransactions;
     }

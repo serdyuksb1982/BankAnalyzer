@@ -1,6 +1,6 @@
 package ru.serdyuk.services;
 
-import ru.serdyuk.domain.BankTransaction;
+import ru.serdyuk.dao.BankTransaction;
 
 import java.time.Month;
 import java.util.List;

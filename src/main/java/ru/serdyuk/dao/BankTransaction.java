@@ -1,9 +1,9 @@
-package ru.serdyuk.domain;
+package ru.serdyuk.dao;
 
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Objects;
+
 @Data
 @ToString
 @Getter@Setter
@@ -12,6 +12,4 @@ public class BankTransaction {
     private final LocalDate date;
     public final double amount;
     public final String description;
-
-
 }
