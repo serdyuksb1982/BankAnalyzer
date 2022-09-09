@@ -1,4 +1,6 @@
-package ru.serdyuk;
+package ru.serdyuk.services;
+
+import ru.serdyuk.domain.BankTransaction;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
