@@ -3,7 +3,7 @@ package ru.serdyuk.domain;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Objects;
+
 @Data
 @ToString
 @Getter@Setter
