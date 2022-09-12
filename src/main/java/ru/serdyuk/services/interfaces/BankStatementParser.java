@@ -1,4 +1,4 @@
-package ru.serdyuk.services;
+package ru.serdyuk.services.interfaces;
 
 import ru.serdyuk.dao.BankTransaction;
 
