@@ -14,9 +14,7 @@ public class BankStatementProcessor {
 
     public double calculateTotalAmount() {
         double total = 0;
-        for (final BankTransaction bank : bankTransactions) {
-            total += bank.getAmount();
-        }
+        for (final BankTransaction bank : bankTransactions) total += bank.getAmount();
         return total;
     }
 
@@ -32,11 +30,8 @@ public class BankStatementProcessor {
 
     public double calculateTotalForCategory(final String category) {
         double total = 0;
-        for (final BankTransaction bankTransaction : bankTransactions) {
-            if (bankTransaction.getDescription().equals(category)) {
-                total += bankTransaction.getAmount();
-            }
-        }
+        for (final BankTransaction bankTransaction : bankTransactions)
+            if (bankTransaction.getDescription().equals(category)) total += bankTransaction.getAmount();
         return total;
     }
 }
