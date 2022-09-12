@@ -1,13 +1,13 @@
 package ru.serdyuk.services;
 
-
 import ru.serdyuk.services.interfaces.BankStatementParser;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Month;
-
+import java.util.List;
 
 public class BankStatementAnalyzer {
     private static final String RESOURCES = "src/main/resources/resources.csv";
