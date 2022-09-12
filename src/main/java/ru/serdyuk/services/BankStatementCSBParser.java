@@ -12,8 +12,7 @@ public class BankStatementCSBParser implements BankStatementParser {
 
     @Override
     public BankTransaction parseForm(String line) {
-        final String[] columns = line.split(" ");
-
+        final String[] columns = line.split(",");
         final LocalDate date = LocalDate.parse(columns[0], DATE_TIME);
         final double amount = Double.parseDouble(columns[1]);
         final String description = columns[2];
@@ -22,10 +21,11 @@ public class BankStatementCSBParser implements BankStatementParser {
 
     @Override
     public List<BankTransaction> parseLinesFrom(List<String> lines) {
-        final List<BankTransaction> bankTransactions = new ArrayList<>();
-        for (final String line: lines) {
-            bankTransactions.add(parseForm(line));
+        List<BankTransaction> list = new ArrayList<>();
+        for (String line : lines) {
+            BankTransaction bankTransaction = parseForm(line);
+            list.add(bankTransaction);
         }
-        return bankTransactions;
+        return list;
     }
 }
