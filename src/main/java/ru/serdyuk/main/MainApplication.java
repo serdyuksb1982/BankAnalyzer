@@ -2,7 +2,7 @@ package ru.serdyuk.main;
 
 import ru.serdyuk.services.BankStatementAnalyzer;
 import ru.serdyuk.services.BankStatementCSBParser;
-import ru.serdyuk.services.BankStatementParser;
+import ru.serdyuk.services.interfaces.BankStatementParser;
 
 import java.io.IOException;
 
@@ -15,6 +15,7 @@ public class MainApplication {
         final BankStatementParser bankStatementParser = new BankStatementCSBParser();
 
         bankStatementAnalyzer.analyze( bankStatementParser);
+
     }
 
 }

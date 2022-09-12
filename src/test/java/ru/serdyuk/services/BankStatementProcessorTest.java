@@ -3,6 +3,7 @@ package ru.serdyuk.services;
 import org.junit.Assert;
 import org.junit.Test;
 import ru.serdyuk.dao.BankTransaction;
+import ru.serdyuk.services.interfaces.BankStatementParser;
 
 import java.time.LocalDate;
 import java.time.Month;

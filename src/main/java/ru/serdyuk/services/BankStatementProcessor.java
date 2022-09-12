@@ -1,8 +1,10 @@
 package ru.serdyuk.services;
 
 import ru.serdyuk.dao.BankTransaction;
+import ru.serdyuk.services.interfaces.BankTransactionFilter;
 
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BankStatementProcessor {
@@ -34,4 +36,16 @@ public class BankStatementProcessor {
             if (bankTransaction.getDescription().equals(category)) total += bankTransaction.getAmount();
         return total;
     }
+
+    public List<BankTransaction> findTransactions(final BankTransactionFilter bankTransactionFilter) {
+        final List<BankTransaction> result = new ArrayList<>();
+        for (final BankTransaction b : bankTransactions) {
+            if (bankTransactionFilter.test(b)) {
+                result.add(b);
+            }
+        }
+        return result;
+    }
+
+
 }

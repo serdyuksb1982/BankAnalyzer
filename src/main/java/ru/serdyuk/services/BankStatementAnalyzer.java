@@ -1,6 +1,8 @@
 package ru.serdyuk.services;
 
 
+import ru.serdyuk.services.interfaces.BankStatementParser;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,6 +17,7 @@ public class BankStatementAnalyzer {
         final var lines = Files.readAllLines(path);
         final var bankTransactions = parser.parseLinesFrom(lines);
         final var bankStatementProcessor = new BankStatementProcessor(bankTransactions);
+
         collectSummary(bankStatementProcessor);
     }
 
@@ -23,5 +26,7 @@ public class BankStatementAnalyzer {
         System.out.println("The total for transactions in January is " + bankStatementProcessor.calculateTotalInMonth( Month.JANUARY ));
         System.out.println("The total for transactions in February is " + bankStatementProcessor.calculateTotalInMonth(Month.FEBRUARY));
         System.out.println("The total salary received is: " + bankStatementProcessor.calculateTotalForCategory("Royalities"));
+        final var transactions = bankStatementProcessor.findTransactions(bankTransaction -> bankTransaction.getDate().getMonth() == Month.FEBRUARY && bankTransaction.getAmount() >= 1_000);
+        System.out.println("The filter " + transactions.toString());
     }
 }
